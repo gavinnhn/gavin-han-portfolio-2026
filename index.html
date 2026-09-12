@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gavin Han</title>
+    <meta
+      name="description"
+      content="UCI business economics · Informatics · visual communication, motion, and product thinking."
+    />
+    <link rel="icon" href="/brand/swagpus.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Oswald:wght@400&family=Silkscreen:wght@400;700&family=Syne:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hud">
+        <a class="hud-brand" href="#top">
+          <img src="/brand/swagpus.png" alt="" class="swagpus" />
+          <span>@gavinnhn</span>
+        </a>
+        <nav class="hud-nav" aria-label="Site">
+          <a href="#work">[ WORK ]</a>
+          <a href="#connect">[ CONNECT ]</a>
+          <button type="button" class="hud-link" data-open-about>[ ABOUT ME ]</button>
+        </nav>
+      </header>
+
+      <section class="hero" id="top">
+        <h1>Gavin Han</h1>
+        <p class="hero-role">CREATIVE DESIGNER&nbsp;&nbsp;+&nbsp;&nbsp;DEVELOPER</p>
+        <div class="hero-tags">
+          <span>PRODUCT DESIGN</span>
+          <span>UI/UX DESIGN</span>
+          <span>PRODUCT MANAGEMENT</span>
+        </div>
+        <p class="hero-dek">
+          UCI business economics · Informatics&nbsp;&nbsp;· visual communication, motion, and product thinking.
+        </p>
+      </section>
+
+      <section class="work" id="work">
+        <div class="grid">
+          <article class="card card-static">
+            <div class="thumb">
+              <img src="/thumbs/nara.png" alt="NaraLanguage work in progress" />
+            </div>
+            <p class="card-label">NaraLanguage [Coming Soon!]</p>
+          </article>
+
+          <article class="card" data-open="meep">
+            <button type="button" class="card-hit" aria-label="Open MEEP case study">
+              <div class="thumb">
+                <img src="/thumbs/meep.png" alt="" />
+                <video class="thumb-clip" muted loop playsinline preload="metadata" src="/video/hero-meep-web.mp4"></video>
+              </div>
+              <p class="card-label">MEEP [Project Teams Spring ‘26]</p>
+            </button>
+          </article>
+
+          <article class="card" data-open="memento">
+            <button type="button" class="card-hit" aria-label="Open Memento case study">
+              <div class="thumb">
+                <img src="/thumbs/memento.png" alt="" />
+                <video class="thumb-clip" muted loop playsinline preload="metadata" src="/video/hero-memento-web.mp4"></video>
+              </div>
+              <p class="card-label">Memento [UCI Design-A-Thon ‘26]</p>
+            </button>
+          </article>
+
+          <article class="card" data-open="cosi">
+            <button type="button" class="card-hit" aria-label="Open Cosi case study">
+              <div class="thumb">
+                <img src="/thumbs/cosi.png" alt="" />
+                <video class="thumb-clip" muted loop playsinline preload="metadata" src="/video/hero-cosi-web.mp4"></video>
+              </div>
+              <p class="card-label">Cosi [Project Teams Winter ‘26</p>
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer" id="connect">
+        <div class="footer-left">
+          <div class="footer-brand">
+            <img src="/brand/swagpus.png" alt="" class="swagpus" />
+            <span>@gavinnhn</span>
+          </div>
+          <p class="footer-place">Irvine · CA</p>
+        </div>
+        <div class="footer-right">
+          <p class="footer-cta">Let's work together!</p>
+          <div class="footer-socials">
+            <a href="https://linkedin.com/in/hhan81" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <text x="12" y="16" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" font-weight="700">in</text>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/gavinnhn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="5" y="5" width="14" height="14" rx="4" />
+                <circle cx="12" cy="12" r="3.2" />
+                <circle cx="16.4" cy="7.6" r="0.8" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="study-root" id="study-root" hidden></div>
+
+    <div class="about-root" id="about-root" hidden>
+      <div class="about-scrim" data-close-about></div>
+      <aside class="about-sheet" role="dialog" aria-labelledby="about-title">
+        <div class="window-chrome">
+          <span>ABOUT.EXE</span>
+          <button type="button" data-close-about>ESC TO CLOSE</button>
+        </div>
+        <div class="about-body">
+          <h2 id="about-title">Gavin Han</h2>
+          <p class="hero-role">CREATIVE DESIGNER&nbsp;&nbsp;+&nbsp;&nbsp;DEVELOPER</p>
+          <div class="hero-tags">
+            <span>PRODUCT DESIGN</span>
+            <span>UI/UX DESIGN</span>
+            <span>PRODUCT MANAGEMENT</span>
+          </div>
+          <p class="about-copy">
+            UCI business economics · Informatics&nbsp;&nbsp;· visual communication, motion, and product thinking.
+          </p>
+          <p class="about-copy">Irvine · CA</p>
+        </div>
+      </aside>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
