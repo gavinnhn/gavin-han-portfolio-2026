@@ -6,31 +6,35 @@
     <title>Gavin Han</title>
     <meta
       name="description"
-      content="UCI business economics · Informatics · visual communication, motion, and product thinking."
+      content="UCI Business Economics · Informatics · Visual Communication, Motion, And Product Thinking"
     />
     <link rel="icon" href="/brand/swagpus.png" type="image/png" />
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="preconnect" href="https://p.typekit.net" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/ozz2aib.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Oswald:wght@400&family=Silkscreen:wght@400;700&family=Syne:wght@800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Silkscreen:wght@400;700&family=Syne:wght@800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <div class="page">
-      <header class="hud">
-        <a class="hud-brand" href="#top">
+    <header class="hud">
+      <div class="hud-inner">
+        <a class="hud-brand" href="/" data-nav aria-label="Home">
           <img src="/brand/swagpus.png" alt="" class="swagpus" />
-          <span>@gavinnhn</span>
         </a>
         <nav class="hud-nav" aria-label="Site">
-          <a href="#work">[ WORK ]</a>
-          <a href="#connect">[ CONNECT ]</a>
-          <button type="button" class="hud-link" data-open-about>[ ABOUT ME ]</button>
+          <a href="/" data-nav data-nav-page="work">[ WORK ]</a>
+          <a href="/about" data-nav data-nav-page="about">[ ABOUT ]</a>
+          <a href="/connect" data-nav data-nav-page="connect">[ CONNECT ]</a>
         </nav>
-      </header>
-
+      </div>
+    </header>
+    <div class="page">
+      <main id="page-home" class="view" data-page="home">
       <section class="hero" id="top">
         <h1>Gavin Han</h1>
         <p class="hero-role">CREATIVE DESIGNER&nbsp;&nbsp;+&nbsp;&nbsp;DEVELOPER</p>
@@ -40,7 +44,7 @@
           <span>PRODUCT MANAGEMENT</span>
         </div>
         <p class="hero-dek">
-          UCI business economics · Informatics&nbsp;&nbsp;· visual communication, motion, and product thinking.
+          UCI Business Economics · Informatics&nbsp;&nbsp;· Visual Communication, Motion, And Product Thinking
         </p>
       </section>
 
@@ -79,64 +83,382 @@
                 <img src="/thumbs/cosi.png" alt="" />
                 <video class="thumb-clip" muted loop playsinline preload="metadata" src="/video/hero-cosi-web.mp4"></video>
               </div>
-              <p class="card-label">Cosi [Project Teams Winter ‘26</p>
+              <p class="card-label">Cosi [Project Teams Winter ‘26]</p>
             </button>
           </article>
         </div>
       </section>
 
-      <footer class="footer" id="connect">
-        <div class="footer-left">
-          <div class="footer-brand">
-            <img src="/brand/swagpus.png" alt="" class="swagpus" />
-            <span>@gavinnhn</span>
-          </div>
-          <p class="footer-place">Irvine · CA</p>
-        </div>
-        <div class="footer-right">
-          <p class="footer-cta">Let's work together!</p>
-          <div class="footer-socials">
-            <a href="https://linkedin.com/in/hhan81" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
-                <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.6" />
-                <text x="12" y="16" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" font-weight="700">in</text>
-              </svg>
-            </a>
-            <a href="https://www.instagram.com/gavinnhn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                <rect x="5" y="5" width="14" height="14" rx="4" />
-                <circle cx="12" cy="12" r="3.2" />
-                <circle cx="16.4" cy="7.6" r="0.8" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </footer>
-    </div>
+      </main>
 
-    <div class="study-root" id="study-root" hidden></div>
-
-    <div class="about-root" id="about-root" hidden>
-      <div class="about-scrim" data-close-about></div>
-      <aside class="about-sheet" role="dialog" aria-labelledby="about-title">
-        <div class="window-chrome">
-          <span>ABOUT.EXE</span>
-          <button type="button" data-close-about>ESC TO CLOSE</button>
-        </div>
-        <div class="about-body">
-          <h2 id="about-title">Gavin Han</h2>
-          <p class="hero-role">CREATIVE DESIGNER&nbsp;&nbsp;+&nbsp;&nbsp;DEVELOPER</p>
-          <div class="hero-tags">
-            <span>PRODUCT DESIGN</span>
-            <span>UI/UX DESIGN</span>
-            <span>PRODUCT MANAGEMENT</span>
+      <main id="page-about" class="view about-story" data-page="about" hidden>
+        <section class="about-chapter is-on" data-chapter="0">
+          <div class="hero about-title">
+            <h1>Hi! My name is Gavin.</h1>
+          </div>
+          <div class="about-carousel" data-about-carousel data-set="0" aria-roledescription="carousel" aria-label="Intro photos and videos">
+            <div class="about-carousel-track">
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="1"><span>01</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="2"><span>02</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="3"><span>03</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="4"><span>04</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="5"><span>05</span></div></div></article>
+            </div>
           </div>
           <p class="about-copy">
-            UCI business economics · Informatics&nbsp;&nbsp;· visual communication, motion, and product thinking.
+            I am majoring Business Economics at UC Irvine with a minor in Informatics. I am a Leo 🦁♌, ENFP-A (Campaigner). I love music 🎹🎧, exploring outdoors 🏂⛰️, learning about new technologies 🧑‍💻🤖, and playing video games 👾🎮.
           </p>
-          <p class="about-copy">Irvine · CA</p>
+          <button type="button" class="about-more" data-about-next>
+            <span>read more</span>
+            <span class="about-chevrons" aria-hidden="true">
+              <svg viewBox="0 0 28 14"><path d="M2 2l12 10 12-10" /></svg>
+              <svg viewBox="0 0 28 14"><path d="M2 2l12 10 12-10" /></svg>
+              <svg viewBox="0 0 28 14"><path d="M2 2l12 10 12-10" /></svg>
+            </span>
+          </button>
+        </section>
+
+        <section class="about-chapter" data-chapter="1" aria-hidden="true">
+          <div class="about-carousel" data-about-carousel data-set="1" aria-roledescription="carousel" aria-label="Games photos and videos">
+            <div class="about-carousel-track">
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="1"><span>01</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="2"><span>02</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="3"><span>03</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="4"><span>04</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="5"><span>05</span></div></div></article>
+            </div>
+          </div>
+          <p class="about-copy">
+            I grew up playing video games, and it is a huge part of my identity. You can see the inspirations everywhere here, from the Nyan Cat cursor + trail, to the pixelated font <span class="about-pixel">Silkscreen</span> as a secondary font to give this site a retro feel.
+          </p>
+          <button type="button" class="about-more" data-about-next>
+            <span>read more</span>
+            <span class="about-chevrons" aria-hidden="true">
+              <svg viewBox="0 0 28 14"><path d="M2 2l12 10 12-10" /></svg>
+              <svg viewBox="0 0 28 14"><path d="M2 2l12 10 12-10" /></svg>
+              <svg viewBox="0 0 28 14"><path d="M2 2l12 10 12-10" /></svg>
+            </span>
+          </button>
+        </section>
+
+        <section class="about-chapter" data-chapter="2" aria-hidden="true">
+          <div class="about-carousel" data-about-carousel data-set="2" aria-roledescription="carousel" aria-label="Logo photos and videos">
+            <div class="about-carousel-track">
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="1"><span>01</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="2"><span>02</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="3"><span>03</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="4"><span>04</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="5"><span>05</span></div></div></article>
+            </div>
+          </div>
+          <p class="about-copy">
+            <strong>Fun fact:</strong> I’ve had this Slavic Cat in a Minecraft background image as all my social media profile picture ever since I was 14. So obviously, I had to turn this OG profile picture into my logo, pixelized to fit with the rest of the site :3
+          </p>
+          <button type="button" class="about-more" data-about-next>
+            <span>read more</span>
+            <span class="about-chevrons" aria-hidden="true">
+              <svg viewBox="0 0 28 14"><path d="M2 2l12 10 12-10" /></svg>
+              <svg viewBox="0 0 28 14"><path d="M2 2l12 10 12-10" /></svg>
+              <svg viewBox="0 0 28 14"><path d="M2 2l12 10 12-10" /></svg>
+            </span>
+          </button>
+        </section>
+
+        <section class="about-chapter" data-chapter="3" aria-hidden="true">
+          <div class="about-carousel" data-about-carousel data-set="3" aria-roledescription="carousel" aria-label="Design photos and videos">
+            <div class="about-carousel-track">
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="1"><span>01</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="2"><span>02</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="3"><span>03</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="4"><span>04</span></div></div></article>
+              <article class="about-slide" data-about-slide><div class="about-slide-face"><div class="about-slide-media" data-ph="5"><span>05</span></div></div></article>
+            </div>
+          </div>
+          <p class="about-copy">
+            I decided to go into Design because I’ve always wanted to work in a creative &amp; free field. I’ve learned a lot about basic design principles thanks to <strong>Design @ UCI</strong>, and I’m trying to hone my skills with every new project I pick up.
+          </p>
+          <p class="about-cta">Wanna know more? Connect with me here</p>
+        </section>
+        <div class="about-connect-arrow" aria-hidden="true">
+          <svg viewBox="0 0 7 9" shape-rendering="crispEdges">
+            <rect x="3" y="0" width="1" height="1" />
+            <rect x="2" y="1" width="3" height="1" />
+            <rect x="1" y="2" width="5" height="1" />
+            <rect x="0" y="3" width="7" height="1" />
+            <rect x="3" y="4" width="1" height="5" />
+          </svg>
         </div>
-      </aside>
+      </main>
+
+      <main id="page-connect" class="view" data-page="connect" hidden>
+        <section class="hero" aria-label="Connect">
+          <h1>My Socials</h1>
+          <p class="hero-dek">A slice of my life outside of school and work :D</p>
+        </section>
+        <section class="connect">
+
+          <article class="social-block">
+            <div class="social-id">
+              <img src="/brand/swagpus.jpeg" alt="" class="swagpus" />
+              <h2>@gavinnhn</h2>
+              <a
+                class="social-icon"
+                href="https://instagram.com/gavinnhn"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <svg viewBox="0 0 20 20" width="22" height="22" fill="currentColor" aria-hidden="true">
+                  <path d="M5.8584 0.070014C4.7944 0.120181 4.06782 0.290014 3.43257 0.539514C2.77523 0.795764 2.21798 1.13951 1.66357 1.69593C1.10923 2.25235 0.767735 2.80993 0.513401 3.46843C0.267235 4.10493 0.100401 4.83218 0.0534013 5.89676C0.00640132 6.96135 -0.00401534 7.3036 0.00123466 10.0193C0.00640132 12.7348 0.0184013 13.0752 0.0699847 14.142C0.120818 15.2058 0.289985 15.9322 0.539568 16.5676C0.796235 17.225 1.13957 17.782 1.69623 18.3366C2.25282 18.8912 2.80998 19.2318 3.46998 19.4866C4.10598 19.7324 4.8334 19.9 5.89782 19.9466C6.96223 19.9933 7.30482 20.0041 10.0197 19.9988C12.7345 19.9937 13.0763 19.9816 14.1428 19.931C15.2095 19.8804 15.932 19.71 16.5677 19.4616C17.2251 19.2044 17.7825 18.8616 18.3367 18.3048C18.8908 17.748 19.2321 17.19 19.4862 16.5312C19.7326 15.8952 19.9001 15.1678 19.9462 14.1042C19.9929 13.0368 20.0039 12.696 19.9987 9.98085C19.9935 7.2656 19.9812 6.92518 19.9307 5.85876C19.8801 4.79235 19.7107 4.06818 19.4612 3.43235C19.2042 2.77493 18.8612 2.21835 18.3049 1.66335C17.7485 1.10835 17.19 0.767347 16.5315 0.513764C15.895 0.267514 15.1681 0.099764 14.1037 0.053764C13.0392 0.00776399 12.6967 -0.00415268 9.98082 0.00118066C7.26499 0.00634732 6.92498 0.018014 5.8584 0.070014ZM5.97523 18.1476C5.00023 18.1052 4.47082 17.9432 4.11798 17.8076C3.65082 17.6276 3.31798 17.41 2.9664 17.0618C2.61473 16.7136 2.39882 16.3796 2.2164 15.9134C2.0794 15.5606 1.9144 15.0318 1.86882 14.0568C1.81923 13.003 1.80882 12.6866 1.80298 10.0168C1.79715 7.34701 1.8074 7.03093 1.85357 5.97676C1.89523 5.0026 2.05823 4.4726 2.19357 4.11993C2.37357 3.65218 2.5904 3.31993 2.9394 2.9686C3.2884 2.61718 3.6214 2.40076 4.08798 2.21835C4.44048 2.08076 4.96923 1.91718 5.94382 1.87076C6.9984 1.82076 7.3144 1.81076 9.98382 1.80493C12.6532 1.7991 12.9701 1.8091 14.0251 1.8556C14.9992 1.89793 15.5295 2.05935 15.8817 2.1956C16.3491 2.3756 16.6817 2.59176 17.0331 2.94143C17.3845 3.29093 17.6011 3.62276 17.7835 4.09035C17.9212 4.44176 18.0849 4.97035 18.1309 5.9456C18.1811 7.00018 18.1925 7.31643 18.1972 9.9856C18.2021 12.6548 18.1926 12.9718 18.1464 14.0256C18.1039 15.0006 17.9422 15.5302 17.8064 15.8834C17.6264 16.3504 17.4095 16.6834 17.0602 17.0346C16.7111 17.3858 16.3785 17.6022 15.9117 17.7846C15.5597 17.922 15.0302 18.086 14.0565 18.1324C13.0018 18.182 12.6858 18.1924 10.0154 18.1983C7.34499 18.2041 7.02982 18.1933 5.97523 18.1476ZM14.1275 4.65535C14.1279 4.89271 14.1987 5.12462 14.3309 5.32174C14.4631 5.51887 14.6508 5.67237 14.8702 5.76281C15.0897 5.85326 15.331 5.87659 15.5637 5.82986C15.7965 5.78313 16.0101 5.66843 16.1776 5.50028C16.3451 5.33213 16.459 5.11807 16.5049 4.88518C16.5507 4.6523 16.5265 4.41104 16.4352 4.19193C16.344 3.97282 16.1898 3.7857 15.9921 3.65423C15.7945 3.52276 15.5623 3.45285 15.325 3.45335C15.0068 3.45401 14.7019 3.581 14.4774 3.80641C14.2528 4.03181 14.127 4.33717 14.1275 4.65535ZM4.8654 10.01C4.87098 12.846 7.17423 15.1398 10.0096 15.1344C12.8451 15.129 15.1404 12.826 15.1351 9.99001C15.1297 7.15401 12.8259 4.8596 9.99007 4.86518C7.15423 4.87076 4.86007 7.17435 4.8654 10.01ZM6.66665 10.0064C6.66535 9.34717 6.85957 8.70232 7.22476 8.15343C7.58994 7.60455 8.10969 7.17628 8.71827 6.92279C9.32685 6.66929 9.99694 6.60195 10.6438 6.72929C11.2906 6.85662 11.8852 7.17291 12.3523 7.63815C12.8194 8.1034 13.1381 8.6967 13.268 9.34304C13.3979 9.98939 13.3332 10.6597 13.0821 11.2693C12.831 11.8789 12.4048 12.4003 11.8574 12.7677C11.31 13.1351 10.6659 13.3319 10.0067 13.3332C9.56889 13.3341 9.13524 13.2488 8.73046 13.0821C8.32568 12.9154 7.95771 12.6706 7.64755 12.3617C7.33739 12.0527 7.09113 11.6857 6.92282 11.2816C6.75452 10.8775 6.66747 10.4442 6.66665 10.0064Z" />
+                </svg>
+              </a>
+            </div>
+            <div class="polaroid-row">
+              <a
+                class="polaroid"
+                href="https://www.instagram.com/gavinnhn/p/DaExg_-lChf/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 16 / 9; --photo-w: 210px; --tilt: -8deg; --nudge-x: -10px; --nudge-y: 28px"
+              >
+                <img src="/connect/ig1.jpg" alt="Instagram post from June 26, 2026" />
+                <span>June 26, 2026</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://www.instagram.com/gavinnhn/p/DTWHtvfkhoi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 1 / 1; --photo-w: 168px; --tilt: 6deg; --nudge-x: 6px; --nudge-y: -18px"
+              >
+                <img src="/connect/ig2.jpg" alt="Instagram post from January 10, 2026" />
+                <span>January 10, 2026</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://www.instagram.com/gavinnhn/p/DQYxt13EeZc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 4 / 5; --photo-w: 146px; --tilt: -4deg; --nudge-x: 14px; --nudge-y: 12px"
+              >
+                <img src="/connect/ig3.jpg" alt="Instagram post from October 29, 2025" />
+                <span>October 29, 2025</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://www.instagram.com/gavinnhn/reel/C8ljLpzOo6C/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 16 / 9; --photo-w: 196px; --tilt: 7deg; --nudge-x: 8px; --nudge-y: -8px"
+              >
+                <img src="/connect/ig4.jpg" alt="Instagram reel from June 23, 2024" />
+                <span>June 23, 2024</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://www.instagram.com/gavinnhn/p/C8SqpMMSvoM/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 4 / 5; --photo-w: 142px; --tilt: -6deg; --nudge-x: -4px; --nudge-y: 20px"
+              >
+                <img src="/connect/ig5.jpg" alt="Instagram post from June 16, 2024" />
+                <span>June 16, 2024</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://www.instagram.com/gavinnhn/p/C5crkkPLRV-/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 4 / 3; --photo-w: 186px; --tilt: 3deg; --nudge-x: 10px; --nudge-y: -14px"
+              >
+                <img src="/connect/ig6.jpg" alt="Instagram post from April 6, 2024" />
+                <span>April 6, 2024</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="social-block">
+            <div class="social-id">
+              <img src="/brand/swagpus.jpeg" alt="" class="swagpus" />
+              <h2>@gavinnhn</h2>
+              <a
+                class="social-icon"
+                href="https://www.youtube.com/@gavinnhn"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                  <path fill="currentColor" d="M23.5 6.2a3.05 3.05 0 0 0-2.15-2.16C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.35.44A3.05 3.05 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3.05 3.05 0 0 0 2.15 2.16C4.5 20.4 12 20.4 12 20.4s7.5 0 9.35-.44a3.05 3.05 0 0 0 2.15-2.16A31.9 31.9 0 0 0 24 12a31.9 31.9 0 0 0-.5-5.8z"/>
+                  <path fill="#1f1217" d="M9.75 15.02V8.98L15.5 12l-5.75 3.02z"/>
+                </svg>
+              </a>
+            </div>
+            <div class="polaroid-row">
+              <a
+                class="polaroid"
+                href="https://www.youtube.com/watch?v=4BAErxJgau8"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 16 / 9; --photo-w: 196px; --tilt: 5deg; --nudge-x: -16px; --nudge-y: 20px"
+              >
+                <img src="/connect/yt-silver.jpg" alt="the silver experience" />
+                <span>the silver experience</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://www.youtube.com/watch?v=V0cdMeqft1E"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 16 / 9; --photo-w: 220px; --tilt: -7deg; --nudge-x: 4px; --nudge-y: -16px"
+              >
+                <img src="/connect/yt-terrible.png" alt="terrible gameplay" />
+                <span>terrible gameplay</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://www.youtube.com/watch?v=xIUHMD1hJps"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 16 / 9; --photo-w: 168px; --tilt: 4deg; --nudge-x: 18px; --nudge-y: 24px"
+              >
+                <img src="/connect/yt-breach.jpg" alt="breach.exe" />
+                <span>breach.exe</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://www.youtube.com/watch?v=P9A0FHQMI1M"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 16 / 9; --photo-w: 204px; --tilt: -6deg; --nudge-x: 2px; --nudge-y: -6px"
+              >
+                <img src="/connect/yt-treasure.png" alt="treasure" />
+                <span>treasure</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://www.youtube.com/watch?v=xIW2oUzjLWs"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 16 / 9; --photo-w: 186px; --tilt: 8deg; --nudge-x: -8px; --nudge-y: 18px"
+              >
+                <img src="/connect/yt-hate.jpg" alt="I Hate Gavin" />
+                <span>I Hate Gavin</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="social-block">
+            <div class="social-id">
+              <img src="/connect/spotify-avatar.jpg" alt="" class="swagpus" />
+              <h2>Gavinnhn</h2>
+              <a
+                class="social-icon"
+                href="https://open.spotify.com/user/21bts3fmxx2mzig377xmqwe4a"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Spotify"
+              >
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                </svg>
+              </a>
+            </div>
+            <div class="polaroid-row">
+              <a
+                class="polaroid"
+                href="https://open.spotify.com/playlist/15XLXsIBL69hqY098e20sU"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 1 / 1; --photo-w: 168px; --tilt: -8deg; --nudge-x: -12px; --nudge-y: 22px"
+              >
+                <img src="/connect/sp-midwest.jpg" alt="cosplaying as a midwest emo teen" />
+                <span>cosplaying as a midwest emo teen</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://open.spotify.com/playlist/0xh6YGR10WqPc6r5RFZKJO"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 1 / 1; --photo-w: 186px; --tilt: 6deg; --nudge-x: 8px; --nudge-y: -16px"
+              >
+                <img src="/connect/sp-understand.jpg" alt="i dont understand" />
+                <span>i dont understand</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://open.spotify.com/playlist/2AsWmDvMKgoGS98NSXSXBl"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 1 / 1; --photo-w: 154px; --tilt: -4deg; --nudge-x: 14px; --nudge-y: 14px"
+              >
+                <img src="/connect/sp-kimi.jpg" alt="kimi ni todoke" />
+                <span>kimi ni todoke</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://open.spotify.com/playlist/7KOr2eekwFSKwSzyD8kLZ5"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 16 / 9; --photo-w: 210px; --tilt: 5deg; --nudge-x: -6px; --nudge-y: -8px"
+              >
+                <img src="/connect/sp-driving.jpg" alt="driving at night" />
+                <span>driving at night</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://open.spotify.com/playlist/3YXUXy6FliuYAd4WP9HsX8"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 1 / 1; --photo-w: 160px; --tilt: -6deg; --nudge-x: 10px; --nudge-y: 20px"
+              >
+                <img src="/connect/sp-frankly.jpg" alt="frankly" />
+                <span>frankly</span>
+              </a>
+              <a
+                class="polaroid"
+                href="https://open.spotify.com/playlist/6ChSfkERjHxz1VcEKTdHVb"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="--ratio: 16 / 9; --photo-w: 196px; --tilt: 7deg; --nudge-x: -4px; --nudge-y: -12px"
+              >
+                <img src="/connect/sp-heart.jpg" alt="&lt;3" />
+                <span>&lt;3</span>
+              </a>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <main id="page-study" class="view study-page" data-page="study" hidden>
+        <article class="study-body" id="study-mount"></article>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <a class="footer-brand" href="/" data-nav aria-label="Home">
+            <img src="/brand/swagpus.png" alt="" class="swagpus" />
+          </a>
+          <div class="footer-socials">
+            <a href="https://linkedin.com/in/hhan81" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M17.0392 17.0433H14.0775V12.4025C14.0775 11.2958 14.055 9.87167 12.5342 9.87167C10.99 9.87167 10.7542 11.0758 10.7542 12.3208V17.0433H7.7925V7.5H10.6375V8.80083H10.6758C11.0733 8.05083 12.04 7.25917 13.4842 7.25917C16.485 7.25917 17.04 9.23417 17.04 11.805L17.0392 17.0433ZM4.4475 6.19417C3.49417 6.19417 2.72833 5.4225 2.72833 4.47333C2.72833 3.525 3.495 2.75417 4.4475 2.75417C5.3975 2.75417 6.1675 3.525 6.1675 4.47333C6.1675 5.4225 5.39667 6.19417 4.4475 6.19417ZM5.9325 17.0433H2.9625V7.5H5.9325V17.0433ZM18.5208 0H1.47583C0.66 0 0 0.645 0 1.44083V18.5592C0 19.3558 0.66 20 1.47583 20H18.5183C19.3333 20 20 19.3558 20 18.5592V1.44083C20 0.645 19.3333 0 18.5183 0H18.5208Z" />
+              </svg>
+            </a>
+            <a href="https://instagram.com/gavinnhn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M5.8584 0.070014C4.7944 0.120181 4.06782 0.290014 3.43257 0.539514C2.77523 0.795764 2.21798 1.13951 1.66357 1.69593C1.10923 2.25235 0.767735 2.80993 0.513401 3.46843C0.267235 4.10493 0.100401 4.83218 0.0534013 5.89676C0.00640132 6.96135 -0.00401534 7.3036 0.00123466 10.0193C0.00640132 12.7348 0.0184013 13.0752 0.0699847 14.142C0.120818 15.2058 0.289985 15.9322 0.539568 16.5676C0.796235 17.225 1.13957 17.782 1.69623 18.3366C2.25282 18.8912 2.80998 19.2318 3.46998 19.4866C4.10598 19.7324 4.8334 19.9 5.89782 19.9466C6.96223 19.9933 7.30482 20.0041 10.0197 19.9988C12.7345 19.9937 13.0763 19.9816 14.1428 19.931C15.2095 19.8804 15.932 19.71 16.5677 19.4616C17.2251 19.2044 17.7825 18.8616 18.3367 18.3048C18.8908 17.748 19.2321 17.19 19.4862 16.5312C19.7326 15.8952 19.9001 15.1678 19.9462 14.1042C19.9929 13.0368 20.0039 12.696 19.9987 9.98085C19.9935 7.2656 19.9812 6.92518 19.9307 5.85876C19.8801 4.79235 19.7107 4.06818 19.4612 3.43235C19.2042 2.77493 18.8612 2.21835 18.3049 1.66335C17.7485 1.10835 17.19 0.767347 16.5315 0.513764C15.895 0.267514 15.1681 0.099764 14.1037 0.053764C13.0392 0.00776399 12.6967 -0.00415268 9.98082 0.00118066C7.26499 0.00634732 6.92498 0.018014 5.8584 0.070014ZM5.97523 18.1476C5.00023 18.1052 4.47082 17.9432 4.11798 17.8076C3.65082 17.6276 3.31798 17.41 2.9664 17.0618C2.61473 16.7136 2.39882 16.3796 2.2164 15.9134C2.0794 15.5606 1.9144 15.0318 1.86882 14.0568C1.81923 13.003 1.80882 12.6866 1.80298 10.0168C1.79715 7.34701 1.8074 7.03093 1.85357 5.97676C1.89523 5.0026 2.05823 4.4726 2.19357 4.11993C2.37357 3.65218 2.5904 3.31993 2.9394 2.9686C3.2884 2.61718 3.6214 2.40076 4.08798 2.21835C4.44048 2.08076 4.96923 1.91718 5.94382 1.87076C6.9984 1.82076 7.3144 1.81076 9.98382 1.80493C12.6532 1.7991 12.9701 1.8091 14.0251 1.8556C14.9992 1.89793 15.5295 2.05935 15.8817 2.1956C16.3491 2.3756 16.6817 2.59176 17.0331 2.94143C17.3845 3.29093 17.6011 3.62276 17.7835 4.09035C17.9212 4.44176 18.0849 4.97035 18.1309 5.9456C18.1811 7.00018 18.1925 7.31643 18.1972 9.9856C18.2021 12.6548 18.1926 12.9718 18.1464 14.0256C18.1039 15.0006 17.9422 15.5302 17.8064 15.8834C17.6264 16.3504 17.4095 16.6834 17.0602 17.0346C16.7111 17.3858 16.3785 17.6022 15.9117 17.7846C15.5597 17.922 15.0302 18.086 14.0565 18.1324C13.0018 18.182 12.6858 18.1924 10.0154 18.1983C7.34499 18.2041 7.02982 18.1933 5.97523 18.1476ZM14.1275 4.65535C14.1279 4.89271 14.1987 5.12462 14.3309 5.32174C14.4631 5.51887 14.6508 5.67237 14.8702 5.76281C15.0897 5.85326 15.331 5.87659 15.5637 5.82986C15.7965 5.78313 16.0101 5.66843 16.1776 5.50028C16.3451 5.33213 16.459 5.11807 16.5049 4.88518C16.5507 4.6523 16.5265 4.41104 16.4352 4.19193C16.344 3.97282 16.1898 3.7857 15.9921 3.65423C15.7945 3.52276 15.5623 3.45285 15.325 3.45335C15.0068 3.45401 14.7019 3.581 14.4774 3.80641C14.2528 4.03181 14.127 4.33717 14.1275 4.65535ZM4.8654 10.01C4.87098 12.846 7.17423 15.1398 10.0096 15.1344C12.8451 15.129 15.1404 12.826 15.1351 9.99001C15.1297 7.15401 12.8259 4.8596 9.99007 4.86518C7.15423 4.87076 4.86007 7.17435 4.8654 10.01ZM6.66665 10.0064C6.66535 9.34717 6.85957 8.70232 7.22476 8.15343C7.58994 7.60455 8.10969 7.17628 8.71827 6.92279C9.32685 6.66929 9.99694 6.60195 10.6438 6.72929C11.2906 6.85662 11.8852 7.17291 12.3523 7.63815C12.8194 8.1034 13.1381 8.6967 13.268 9.34304C13.3979 9.98939 13.3332 10.6597 13.0821 11.2693C12.831 11.8789 12.4048 12.4003 11.8574 12.7677C11.31 13.1351 10.6659 13.3319 10.0067 13.3332C9.56889 13.3341 9.13524 13.2488 8.73046 13.0821C8.32568 12.9154 7.95771 12.6706 7.64755 12.3617C7.33739 12.0527 7.09113 11.6857 6.92282 11.2816C6.75452 10.8775 6.66747 10.4442 6.66665 10.0064Z" />
+              </svg>
+            </a>
+            <a href="mailto:gavin040801@gmail.com" aria-label="Email Gavin">
+              <svg viewBox="0 0 20 15" width="20" height="15" fill="currentColor" aria-hidden="true">
+                <path d="M20 2.04961V13.6404C20 14.3938 19.39 15.0038 18.6367 15.0038H15.4542V7.27711L10 11.3688L4.54583 7.27711V15.0046H1.36333C1.18423 15.0046 1.00688 14.9693 0.841416 14.9008C0.675954 14.8322 0.525625 14.7317 0.399017 14.605C0.272408 14.4783 0.172003 14.3279 0.103539 14.1624C0.0350736 13.9969 -0.000109223 13.8195 2.5471e-07 13.6404V2.04961C2.5471e-07 0.363776 1.92417 -0.598724 3.2725 0.412942L4.54583 1.36878L10 5.45878L15.4542 1.36711L16.7275 0.412942C18.075 -0.597891 20 0.363776 20 2.04961Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <p class="footer-credit">&copy; 2026 · by Gavin Han · built with Figma &amp; Cursor</p>
+      </footer>
     </div>
 
     <script type="module" src="/src/main.js"></script>
