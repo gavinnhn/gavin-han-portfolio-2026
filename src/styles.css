@@ -336,6 +336,16 @@ a {
   color: #735461;
 }
 
+.polaroid-row-feature {
+  min-height: 0;
+  align-items: center;
+  padding: 8px 0 12px;
+}
+
+.polaroid.polaroid-long {
+  width: min(1080px, 100%);
+}
+
 .hud-nav a,
 .hud-link {
   position: relative;
@@ -1938,6 +1948,11 @@ body[data-page="about"] .footer {
     align-items: start;
     gap: 22px 12px;
     padding: 8px 4px 24px;
+  }
+
+  .polaroid-row-feature {
+    display: flex;
+    grid-template-columns: none;
   }
 
   .polaroid {
