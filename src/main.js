@@ -59,7 +59,10 @@ function applyRoute() {
   }
   setHudAway(false);
   if (page === "about") resetAboutStory();
-  else placeConnectArrow();
+  else {
+    placeConnectArrow();
+    releaseAboutMedia();
+  }
   window.scrollTo(0, 0);
 }
 
@@ -176,7 +179,7 @@ function renderBlock(block, study) {
   }
   if (block.type === "figure") {
     return `<figure class="figure">
-      <img src="${block.src}" alt="${block.caption}" />
+      <img src="${block.src}" alt="${block.caption}" loading="lazy" decoding="async" />
       ${figureCaption(block.caption)}
     </figure>`;
   }
@@ -193,10 +196,8 @@ function renderBlock(block, study) {
   if (block.type === "lane") {
     return `<figure class="figure">
       <div class="lane">
-        <img src="${block.still}" alt="Loading states we compared" />
-        <div class="lane-phone">
-          <video src="${block.video}" muted loop playsinline autoplay></video>
-        </div>
+        <img class="lane-plate" src="${block.still}" alt="" />
+        <video class="lane-screen" src="${block.video}" muted loop playsinline autoplay preload="metadata"></video>
       </div>
       ${figureCaption(block.caption)}
     </figure>`;
@@ -212,9 +213,28 @@ function renderBlock(block, study) {
     </figure>`;
   }
   if (block.type === "gifs") {
-    const gifs = block.srcs.map((src) => `<img src="${src}" alt="" />`).join("");
+    const gifs = block.srcs.map((src) => `<img src="${src}" alt="" loading="lazy" decoding="async" />`).join("");
     return `<figure class="figure">
       <div class="gif-row">${gifs}</div>
+      ${figureCaption(block.caption)}
+    </figure>`;
+  }
+  if (block.type === "meep-solution") {
+    const phones = block.phones
+      .map(
+        (src, index) =>
+          `<video class="meep-phone meep-phone-${index + 1}" src="${src}" muted loop playsinline autoplay preload="metadata"></video>`
+      )
+      .join("");
+    const star =
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fdd656" d="M12 1.8l2.85 6.35 6.95.74-5.2 4.62 1.52 6.84L12 16.9 6.88 20.35l1.52-6.84L3.2 8.89l6.95-.74L12 1.8z"/></svg>';
+    return `<figure class="figure">
+      <div class="meep-stage">
+        ${phones}
+        <img class="meep-mascot" src="${block.mascot}" alt="" />
+        <span class="meep-star meep-star-a">${star}</span>
+        <span class="meep-star meep-star-b">${star}</span>
+      </div>
       ${figureCaption(block.caption)}
     </figure>`;
   }
@@ -265,9 +285,60 @@ function renderStudy(id) {
 
 function bindFlowMaps(root) {
   root.querySelectorAll("[data-flow]").forEach((map) => {
+    const stage = map.querySelector(".flow-stage");
     let dragging = false;
     let lastX = 0;
     let lastY = 0;
+    let zoom = 1;
+    let gestureZoom = null;
+    const minZoom = 0.45;
+    const maxZoom = 4;
+
+    function applyZoom(next, clientX, clientY) {
+      next = Math.min(maxZoom, Math.max(minZoom, next));
+      if (Math.abs(next - zoom) < 0.0001) return;
+      const rect = map.getBoundingClientRect();
+      const pointerX = clientX - rect.left;
+      const pointerY = clientY - rect.top;
+      const contentX = map.scrollLeft + pointerX;
+      const contentY = map.scrollTop + pointerY;
+      const ratio = next / zoom;
+      zoom = next;
+      stage.style.width = `${190 * zoom}%`;
+      map.scrollLeft = contentX * ratio - pointerX;
+      map.scrollTop = contentY * ratio - pointerY;
+    }
+
+    map.addEventListener(
+      "wheel",
+      (event) => {
+        if (!event.ctrlKey || gestureZoom != null) return;
+        event.preventDefault();
+        const dy = event.deltaMode === 1 ? event.deltaY * 16 : event.deltaY;
+        applyZoom(zoom * Math.exp(-dy * 0.002), event.clientX, event.clientY);
+      },
+      { passive: false },
+    );
+    map.addEventListener(
+      "gesturestart",
+      (event) => {
+        event.preventDefault();
+        gestureZoom = zoom;
+      },
+      { passive: false },
+    );
+    map.addEventListener(
+      "gesturechange",
+      (event) => {
+        event.preventDefault();
+        if (gestureZoom == null) return;
+        applyZoom(gestureZoom * event.scale, event.clientX, event.clientY);
+      },
+      { passive: false },
+    );
+    map.addEventListener("gestureend", () => {
+      gestureZoom = null;
+    });
 
     map.addEventListener("pointerdown", (event) => {
       if (event.pointerType === "touch" || event.button !== 0) return;
@@ -351,6 +422,16 @@ function aboutPageOn() {
   return document.body.dataset.page === "about";
 }
 
+function releaseAboutMedia() {
+  document.querySelectorAll(".about-chapter video").forEach((video) => {
+    if (!video.getAttribute("src")) return;
+    video.pause();
+    video.dataset.src = video.getAttribute("src");
+    video.removeAttribute("src");
+    video.load();
+  });
+}
+
 function setAboutChapter(next, dir = 1) {
   if (!aboutChapters.length) {
     aboutChapters = [...document.querySelectorAll(".about-chapter")];
@@ -372,9 +453,20 @@ function setAboutChapter(next, dir = 1) {
   placeConnectArrow();
   document.querySelectorAll(".about-chapter").forEach((chapter) => {
     const on = chapter.classList.contains("is-on");
-    chapter.querySelectorAll("video").forEach((video) => {
-      if (on) video.play().catch(() => {});
-      else video.pause();
+    chapter.querySelectorAll("img, video").forEach((el) => {
+      if (el.tagName === "IMG") {
+        if (on && !el.getAttribute("src") && el.dataset.src) el.src = el.dataset.src;
+        return;
+      }
+      if (on && aboutPageOn()) {
+        if (!el.getAttribute("src") && el.dataset.src) el.src = el.dataset.src;
+        el.play().catch(() => {});
+      } else if (el.getAttribute("src")) {
+        el.pause();
+        el.dataset.src = el.getAttribute("src");
+        el.removeAttribute("src");
+        el.load();
+      }
     });
   });
 }
@@ -456,11 +548,16 @@ function bindAboutCarousel(root) {
       face.style.transform = `translateY(${y}px) translateZ(${z}px) scale(${scale}) rotateY(${rot}deg)`;
       face.style.filter = `blur(${blur}px) brightness(${bright}) contrast(${contrast})`;
       face.style.opacity = String(active ? 1 : Math.max(0.45, 0.76 - 0.12 * depth));
+      const video = slide.querySelector("video");
+      if (video && aboutPageOn() && root.closest(".about-chapter")?.classList.contains("is-on")) {
+        if (!video.getAttribute("src") && video.dataset.src) video.src = video.dataset.src;
+        video.play().catch(() => {});
+      }
     });
   }
 
-  function step(direction, count = 1) {
-    if (!slides.length || (locked && count < 2)) return;
+  function step(direction, count = 1, force = false) {
+    if (!slides.length || (!force && locked && count < 2)) return;
     locked = true;
     index = (index + direction * count + slides.length * 4) % slides.length;
     render(true);
@@ -472,31 +569,54 @@ function bindAboutCarousel(root) {
   }
 
   function onWheel(event) {
+    const over = event.target.closest?.(".about-carousel") === root;
     const unit = event.deltaMode === 1 ? 40 : event.deltaMode === 2 ? root.clientWidth : 1;
     const dx = event.deltaX * unit;
     const dy = event.deltaY * unit;
-    if (Math.abs(dx) < 10 || Math.abs(dx) <= Math.abs(dy)) return false;
+    let delta = 0;
+    if (Math.abs(dx) >= 6 && Math.abs(dx) > Math.abs(dy) * 0.8) delta = dx;
+    else if (over && Math.abs(dy) >= 6) delta = dy;
+    else return false;
     event.preventDefault();
-    const nextDir = dx > 0 ? 1 : -1;
+    const nextDir = delta > 0 ? 1 : -1;
     if (locked) return true;
     if (nextDir !== wheelDir) {
       accum = 0;
       wheelDir = nextDir;
     }
-    accum += Math.min(Math.abs(dx), 160);
+    accum += Math.min(Math.abs(delta), 160);
     window.clearTimeout(resetTimer);
     resetTimer = window.setTimeout(() => {
       accum = 0;
       wheelDir = 0;
     }, 320);
-    if (accum < 24) return true;
+    if (accum < 18) return true;
     accum = 0;
     step(nextDir, 1);
     return true;
   }
 
+  function buttonAt(event) {
+    return [...root.querySelectorAll("[data-about-dir]")].find((button) => {
+      const box = button.getBoundingClientRect();
+      return event.clientX >= box.left && event.clientX <= box.right && event.clientY >= box.top && event.clientY <= box.bottom;
+    });
+  }
+
+  function pressButton(event) {
+    const button = buttonAt(event);
+    if (!button) return false;
+    event.preventDefault();
+    event.stopPropagation();
+    if (!aboutPageOn()) return true;
+    if (!root.closest(".about-chapter")?.classList.contains("is-on")) return true;
+    step(Number(button.getAttribute("data-about-dir")), 1, true);
+    return true;
+  }
+
   root.addEventListener("pointerdown", (event) => {
     if (event.button !== 0) return;
+    if (buttonAt(event)) return;
     drag = { x: event.clientX, y: event.clientY, t: performance.now() };
     track.classList.add("is-grabbing");
     root.setPointerCapture?.(event.pointerId);
@@ -511,7 +631,7 @@ function bindAboutCarousel(root) {
     track.classList.remove("is-grabbing");
     if (!aboutPageOn()) return;
     if (!root.closest(".about-chapter")?.classList.contains("is-on")) return;
-    if (Math.abs(dx) < 28 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    if (Math.abs(dx) < 18 || Math.abs(dx) < Math.abs(dy) * 1.05) return;
     const speed = Math.abs(dx) / dt;
     const steps = Math.min(slides.length - 1, speed > 1.1 || Math.abs(dx) > 180 ? 2 : 1);
     step(dx < 0 ? 1 : -1, steps);
@@ -521,6 +641,8 @@ function bindAboutCarousel(root) {
     drag = null;
     track.classList.remove("is-grabbing");
   }
+
+  root.addEventListener("click", pressButton);
 
   render(false);
   requestAnimationFrame(() => root.classList.add("is-ready"));

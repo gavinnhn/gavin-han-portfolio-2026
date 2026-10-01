@@ -93,16 +93,7 @@ export const studies = {
         type: "prose",
         html: "So we created MEEP! An app that introduces new media outside of mainstream algorithms to users through 4 main functions: Unbox-A-Rec, Social Feed, Travel Log, and Profile + Rewind",
       },
-      {
-        type: "gifs",
-        srcs: [
-          "/studies/meep-gif-1.gif",
-          "/studies/meep-gif-3.gif",
-          "/studies/meep-gif-4.gif",
-          "/studies/meep-gif-2.gif",
-        ],
-        caption: "MEEP",
-      },
+      { type: "figure", src: "/studies/meep-solution.png", caption: "MEEP" },
       {
         type: "prose",
         html: "To think about how we can stand out amongst other media recommendation apps, we created a competitive analysis",
@@ -253,7 +244,7 @@ export const studies = {
       },
       {
         type: "lane",
-        still: "/studies/mem-lane-before.png",
+        still: "/studies/mem-lane-frame.png",
         video: "/video/memento-lane-screen.mp4",
         caption: "Down the memory lane",
       },
