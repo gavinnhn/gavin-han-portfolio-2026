@@ -447,9 +447,10 @@ function bindAboutCarousel(root) {
       const scale = sharpening ? 0.975 : active ? 1 : Math.max(0.84, 0.94 - 0.04 * depth);
       const y = sharpening ? 4 : active ? 0 : 9 + 4 * depth;
       const z = sharpening ? -28 : active ? 0 : -96 - 40 * depth;
-      slide.style.transform = `translateX(calc(${slot} * (var(--about-card) + var(--about-gap))))`;
+      slide.style.transform = `translateX(calc(-50% + ${slot} * (var(--about-card) + var(--about-gap))))`;
       slide.style.opacity = hidden ? "0" : "1";
       slide.style.zIndex = active ? "50" : String(20 - depth);
+      slide.classList.toggle("is-front", active);
       slide.setAttribute("aria-hidden", active ? "false" : "true");
       const face = faces[i];
       face.style.transform = `translateY(${y}px) translateZ(${z}px) scale(${scale}) rotateY(${rot}deg)`;
@@ -471,25 +472,24 @@ function bindAboutCarousel(root) {
   }
 
   function onWheel(event) {
-    const unit = event.deltaMode === 1 ? 40 : event.deltaMode === 2 ? track.clientHeight : 1;
+    const unit = event.deltaMode === 1 ? 40 : event.deltaMode === 2 ? root.clientWidth : 1;
     const dx = event.deltaX * unit;
     const dy = event.deltaY * unit;
-    const dominant = Math.abs(dx) > Math.abs(dy) ? dx : dy;
-    if (Math.abs(dominant) < 1) return false;
+    if (Math.abs(dx) < 10 || Math.abs(dx) <= Math.abs(dy)) return false;
     event.preventDefault();
-    const nextDir = dominant > 0 ? 1 : -1;
+    const nextDir = dx > 0 ? 1 : -1;
     if (locked) return true;
     if (nextDir !== wheelDir) {
       accum = 0;
       wheelDir = nextDir;
     }
-    accum += Math.min(Math.abs(dominant), 160);
+    accum += Math.min(Math.abs(dx), 160);
     window.clearTimeout(resetTimer);
     resetTimer = window.setTimeout(() => {
       accum = 0;
       wheelDir = 0;
-    }, 400);
-    if (accum < 12) return true;
+    }, 320);
+    if (accum < 24) return true;
     accum = 0;
     step(nextDir, 1);
     return true;
@@ -544,18 +544,24 @@ function initAboutCarousel() {
     active()?.step(event.key === "ArrowRight" ? 1 : -1);
   });
 
-  return (event) => {
-    if (!aboutPageOn()) return false;
-    const carousel = active();
-    if (!carousel) return false;
-    if (event.target.closest?.(".about-copy, .about-cta, .about-more")) return false;
-    return carousel.onWheel(event);
+  return {
+    onWheel(event) {
+      if (!aboutPageOn()) return false;
+      const carousel = active();
+      if (!carousel) return false;
+      return carousel.onWheel(event);
+    },
+    step(dir) {
+      active()?.step(dir);
+    },
   };
 }
 
 function initAboutStory() {
   aboutChapters = [...document.querySelectorAll(".about-chapter")];
-  const aboutCarouselWheel = initAboutCarousel();
+  const aboutCarousel = initAboutCarousel();
+  let downAccum = 0;
+  let downTimer = 0;
   window.addEventListener("resize", placeConnectArrow);
   document.addEventListener("click", (event) => {
     if (!event.target.closest("[data-about-next]")) return;
@@ -566,10 +572,18 @@ function initAboutStory() {
     "wheel",
     (event) => {
       if (!aboutPageOn()) return;
-      if (aboutCarouselWheel(event)) return;
+      if (aboutCarousel.onWheel(event)) return;
       event.preventDefault();
-      if (Math.abs(event.deltaY) < 24) return;
-      stepAbout(event.deltaY > 0 ? 1 : -1);
+      const unit = event.deltaMode === 1 ? 40 : 1;
+      downAccum += event.deltaY * unit;
+      window.clearTimeout(downTimer);
+      downTimer = window.setTimeout(() => {
+        downAccum = 0;
+      }, 280);
+      if (Math.abs(downAccum) < 36) return;
+      const dir = downAccum > 0 ? 1 : -1;
+      downAccum = 0;
+      stepAbout(dir);
     },
     { passive: false, capture: true },
   );
@@ -593,8 +607,11 @@ function initAboutStory() {
       const dx = touchX - event.changedTouches[0].clientX;
       touchY = null;
       touchX = null;
-      if (Math.abs(dx) > Math.abs(dy)) return;
-      if (Math.abs(dy) < 40) return;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 28) {
+        aboutCarousel.step(dx > 0 ? 1 : -1);
+        return;
+      }
+      if (Math.abs(dy) < 28) return;
       stepAbout(dy > 0 ? 1 : -1);
     },
     { passive: true },

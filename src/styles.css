@@ -27,12 +27,16 @@
 html {
   scroll-behavior: smooth;
   background: #000;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
   color: var(--white);
   font-family: var(--body);
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: clip;
   background-color: #000;
   background-image: linear-gradient(180deg, #000000 0%, var(--hero-end) 100%);
   background-attachment: fixed;
@@ -1229,6 +1233,7 @@ body[data-page="about"] .footer {
 .about-carousel {
   --about-card: clamp(168px, 22vw, 280px);
   --about-gap: clamp(36px, 4vw, 56px);
+  --about-media-h: min(28vh, 250px);
   position: absolute;
   z-index: 4;
   left: 0;
@@ -1262,8 +1267,11 @@ body[data-page="about"] .footer {
   position: absolute;
   left: 50%;
   top: 8px;
-  width: var(--about-card);
-  margin-left: calc(var(--about-card) / -2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  max-width: var(--about-card);
   transform-style: preserve-3d;
 }
 
@@ -1273,18 +1281,22 @@ body[data-page="about"] .footer {
 }
 
 .about-slide-face {
-  aspect-ratio: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: var(--about-media-h);
   transform-style: preserve-3d;
   will-change: transform, filter;
 }
 
 .about-slide-media {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #8d6a78;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: var(--about-card);
+  max-height: 100%;
+  overflow: visible;
+  background: transparent;
   color: #1a1014;
   font-family: var(--hud);
   font-size: 13px;
@@ -1317,19 +1329,36 @@ body[data-page="about"] .footer {
 .about-slide-media img,
 .about-slide-media video {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  max-width: var(--about-card);
+  max-height: var(--about-media-h);
+  object-fit: contain;
 }
 
 .about-slide-title {
-  margin: 12px 4px 0;
+  position: absolute;
+  left: 50%;
+  top: calc(var(--about-media-h) + 12px);
+  width: max-content;
+  max-width: min(320px, 78vw);
+  margin: 0;
   font-family: var(--hud);
   font-size: 11px;
   line-height: 1.35;
   letter-spacing: 0.02em;
   text-align: center;
+  text-wrap: balance;
   color: var(--highlight);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%);
+  transition: opacity 420ms ease, visibility 420ms ease;
+}
+
+.about-slide.is-front .about-slide-title {
+  opacity: 1;
+  visibility: visible;
 }
 
 .about-chapter {
@@ -1500,7 +1529,8 @@ body[data-page="about"] .footer {
 @media (prefers-reduced-motion: reduce) {
   .about-chapter,
   .about-slide,
-  .about-slide-face {
+  .about-slide-face,
+  .about-slide-title {
     transition: none;
   }
 
@@ -1539,7 +1569,16 @@ body[data-page="about"] .footer {
 
   .grid,
   .meta-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card,
+  .card-hit,
+  .hero,
+  .hero-dek,
+  .hero-role {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .study-page {
@@ -1637,5 +1676,210 @@ body[data-page="about"] .footer {
 
   .about-more {
     bottom: 16px;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --hud-h: 96px;
+  }
+
+  .hud-inner {
+    flex-wrap: wrap;
+    align-content: center;
+    min-height: 0;
+    height: var(--hud-h);
+    padding: 10px 16px 12px;
+    gap: 8px 12px;
+  }
+
+  .hud-brand {
+    font-size: 16px;
+  }
+
+  .swagpus {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hud-nav {
+    flex: 1 0 100%;
+    width: 100%;
+    justify-content: space-between;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .hud-nav a,
+  .hud-link {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 30px;
+    padding: 0 4px;
+    font-size: 9px;
+  }
+
+  .hero {
+    padding: 20px var(--gutter) 8px;
+    gap: 14px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero-role {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .hero-dek {
+    font-size: 14px;
+  }
+
+  .work {
+    padding: 4px 20px 28px;
+  }
+
+  .hero-dek,
+  .card-label,
+  .social-story {
+    overflow-wrap: anywhere;
+  }
+
+  .grid {
+    gap: 22px;
+  }
+
+  .about-chapter.is-on {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    min-width: 0;
+    padding: 4px 20px 12px;
+    overflow: hidden;
+  }
+
+  .about-chapter.is-on > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .about-title {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-title h1 {
+    font-size: 32px;
+  }
+
+  .about-carousel {
+    --about-card: min(70vw, 240px);
+    --about-gap: 16px;
+    --about-media-h: min(30vh, 220px);
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+    height: min(38vh, 280px);
+    flex: 0 0 auto;
+    overflow: hidden;
+  }
+
+  .about-carousel-track {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-slide-face,
+  .about-slide-media img,
+  .about-slide-media video {
+    max-height: var(--about-media-h);
+  }
+
+  .about-chapter.is-on .about-copy,
+  .about-chapter.is-on .about-cta {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: auto;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .about-chapter.is-on .about-copy {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .about-cta {
+    font-size: 13px;
+  }
+
+  .about-more {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    align-self: center;
+  }
+
+  .study-page,
+  .study-page .study-body,
+  .connect,
+  .polaroid-row {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .connect {
+    gap: 36px;
+    padding-bottom: 36px;
+  }
+
+  .study-body > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .study-dek,
+  .hero-dek,
+  .card-label {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .polaroid-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: start;
+    gap: 22px 12px;
+    padding: 8px 4px 24px;
+  }
+
+  .polaroid {
+    width: min(100%, 148px);
+    transform: rotate(calc(var(--tilt, -3deg) * 0.25));
+  }
+
+  .social-story {
+    font-size: 15px;
+  }
+
+  .study-title {
+    font-size: 34px;
+  }
+
+  .hmw {
+    font-size: 24px;
   }
 }
