@@ -1234,20 +1234,20 @@ body[data-page="about"] .footer {
   left: 0;
   right: 0;
   top: 128px;
-  height: min(46vh, 440px);
+  height: min(54vh, 520px);
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .about-carousel-track {
   position: relative;
   width: min(1188px, 100%);
-  height: calc(var(--about-card) + 72px);
+  height: calc(var(--about-card) + 132px);
   overflow: hidden;
   pointer-events: auto;
-  touch-action: pan-y;
+  touch-action: none;
   perspective: 1100px;
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%);
@@ -1320,6 +1320,16 @@ body[data-page="about"] .footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.about-slide-title {
+  margin: 12px 4px 0;
+  font-family: var(--hud);
+  font-size: 11px;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--highlight);
 }
 
 .about-chapter {
@@ -1609,7 +1619,7 @@ body[data-page="about"] .footer {
   .about-carousel {
     --about-card: clamp(140px, 42vw, 220px);
     top: 112px;
-    height: min(40vh, 320px);
+    height: min(48vh, 420px);
   }
 
   .about-chapter .about-copy,

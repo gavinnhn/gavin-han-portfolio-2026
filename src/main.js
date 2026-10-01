@@ -370,6 +370,13 @@ function setAboutChapter(next, dir = 1) {
   });
   aboutIndex = target;
   placeConnectArrow();
+  document.querySelectorAll(".about-chapter").forEach((chapter) => {
+    const on = chapter.classList.contains("is-on");
+    chapter.querySelectorAll("video").forEach((video) => {
+      if (on) video.play().catch(() => {});
+      else video.pause();
+    });
+  });
 }
 
 function resetAboutStory() {
@@ -460,36 +467,39 @@ function bindAboutCarousel(root) {
     settleTimer = window.setTimeout(() => render(false), 430);
     window.setTimeout(() => {
       locked = false;
-    }, count > 1 ? 680 : 1040);
+    }, 640);
   }
 
   function onWheel(event) {
-    if (!track.contains(event.target)) return false;
-    if (Math.abs(event.deltaX) < Math.abs(event.deltaY) || Math.abs(event.deltaX) < 3) return false;
+    const unit = event.deltaMode === 1 ? 40 : event.deltaMode === 2 ? track.clientHeight : 1;
+    const dx = event.deltaX * unit;
+    const dy = event.deltaY * unit;
+    const dominant = Math.abs(dx) > Math.abs(dy) ? dx : dy;
+    if (Math.abs(dominant) < 1) return false;
     event.preventDefault();
-    const nextDir = event.deltaX > 0 ? 1 : -1;
+    const nextDir = dominant > 0 ? 1 : -1;
+    if (locked) return true;
     if (nextDir !== wheelDir) {
       accum = 0;
       wheelDir = nextDir;
     }
-    accum += Math.min(Math.abs(event.deltaX), 55);
+    accum += Math.min(Math.abs(dominant), 160);
     window.clearTimeout(resetTimer);
     resetTimer = window.setTimeout(() => {
       accum = 0;
       wheelDir = 0;
-    }, 220);
-    const burst = accum >= 480 || Math.abs(event.deltaX) >= 360;
-    if ((locked && !burst) || accum < 210) return true;
-    const steps = Math.min(slides.length - 1, Math.max(1, Math.floor(accum / 420)));
+    }, 400);
+    if (accum < 12) return true;
     accum = 0;
-    step(nextDir, steps);
+    step(nextDir, 1);
     return true;
   }
 
-  track.addEventListener("pointerdown", (event) => {
+  root.addEventListener("pointerdown", (event) => {
     if (event.button !== 0) return;
     drag = { x: event.clientX, y: event.clientY, t: performance.now() };
     track.classList.add("is-grabbing");
+    root.setPointerCapture?.(event.pointerId);
   });
 
   function endDrag(event) {
@@ -538,6 +548,7 @@ function initAboutCarousel() {
     if (!aboutPageOn()) return false;
     const carousel = active();
     if (!carousel) return false;
+    if (event.target.closest?.(".about-copy, .about-cta, .about-more")) return false;
     return carousel.onWheel(event);
   };
 }
@@ -560,7 +571,7 @@ function initAboutStory() {
       if (Math.abs(event.deltaY) < 24) return;
       stepAbout(event.deltaY > 0 ? 1 : -1);
     },
-    { passive: false },
+    { passive: false, capture: true },
   );
 
   let touchY = null;
