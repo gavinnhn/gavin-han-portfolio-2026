@@ -1,7 +1,10 @@
 import { inject } from "@vercel/analytics";
 import { studies } from "./content.js";
 
-inject();
+// Initialize Vercel Web Analytics
+inject({
+  mode: import.meta.env.MODE === 'development' ? 'development' : 'production',
+});
 
 const studyMount = document.getElementById("study-mount");
 
