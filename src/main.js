@@ -1,4 +1,7 @@
+import { inject } from "@vercel/analytics";
 import { studies } from "./content.js";
+
+inject();
 
 const studyMount = document.getElementById("study-mount");
 
