@@ -23,7 +23,7 @@ export const studies = {
       {
         heading: "Social Feed",
         story:
-          "Discovery works better secondhand. Use the social feed to discover your friend’s activities, what they have been unboxing, rating, and returning to. Our media recommendation travels between people on top of our recommendations.",
+          "Discovery works better secondhand. The social feed shows friends’ activity: what they have been unboxing, rating, and returning to. Recommendations travel from person to person, alongside the ones the app already makes.",
         video: "/video/meep-feed-web.mp4",
       },
       {
@@ -35,7 +35,7 @@ export const studies = {
       {
         heading: "Profile page",
         story:
-          "In the user’s profile, they can customize their MEEP to stand out, access their settings, and watch a MEEP rewind on their current media consumption.",
+          "In the user’s profile, they can customize their MEEP to stand out, access their settings, and watch a MEEP rewind of their current media consumption.",
         video: "/video/meep-profile-web.mp4",
       },
     ],
@@ -43,7 +43,7 @@ export const studies = {
       { type: "divider", label: "CONTEXT" },
       {
         type: "prose",
-        html: "The prompt of the project was: interacting with the unfamiliar. To venture into the unknown, our team wanted to build an app that solves repetitive algorithms and biased mainstream media and finds more niche media, a very common theme in today’s social media world for young Gen-Zers.",
+        html: "The prompt for the project was: interacting with the unfamiliar. To venture into the unknown, our team wanted to build an app that gets past repetitive algorithms and biased mainstream media and finds more niche media, a very common theme in today’s social media world for young Gen-Zers.",
       },
       { type: "divider", label: "DEMO" },
       { type: "demo", src: "/studies/meep-screen.mp4", bg: "/studies/meep-demo-bg.png", layout: "meep", rate: 0.75, caption: "Full demo" },
@@ -55,7 +55,7 @@ export const studies = {
         alien: "/studies/meep-alien.png",
       },
       { type: "divider", label: "RESEARCH" },
-      { type: "prose", html: "We surveyed 122 people. Out of them," },
+      { type: "prose", html: "We surveyed 122 people. Of those people," },
       {
         type: "pies",
         items: [
@@ -64,22 +64,22 @@ export const studies = {
           { pct: 64, html: "<strong>64%</strong> of users feel stuck in an algorithm loop" },
         ],
       },
-      { type: "prose", html: "Users want discovery but lack a guided way to find it" },
+      { type: "prose", html: "Users want discovery, but they lack a guided way to find it." },
       {
         type: "prose",
-        html: "Through interviewing 6 participants, we were able to identify three major takeaways.",
+        html: "Through interviews with 6 participants, we were able to identify three major takeaways.",
       },
       {
         type: "cards",
         items: [
           {
             icon: "clock",
-            html: "<strong>fear of wasting time keeps users stuck in their media comfort zone</strong>",
+            html: "<strong>Fear of wasting time keeps users stuck in their media comfort zone</strong>",
             count: "4 of 6 participants",
           },
           {
             icon: "friends",
-            html: "<strong>friends are the most reliable path to discovering unfamiliar media</strong>",
+            html: "<strong>Friends are the most reliable path to discovering unfamiliar media</strong>",
             count: "5 of 6 participants",
           },
           {
@@ -91,12 +91,12 @@ export const studies = {
       },
       {
         type: "prose",
-        html: "So we created MEEP! An app that introduces new media outside of mainstream algorithms to users through 4 main functions: Unbox-A-Rec, Social Feed, Travel Log, and Profile + Rewind",
+        html: "So we created MEEP! An app that introduces new media outside of mainstream algorithms to users through 4 main functions: Unbox-A-Rec, Social Feed, Travel Log, and Profile + Rewind.",
       },
       { type: "figure", src: "/studies/meep-solution.png", caption: "MEEP" },
       {
         type: "prose",
-        html: "To think about how we can stand out amongst other media recommendation apps, we created a competitive analysis",
+        html: "To figure out how we could stand out amongst other media recommendation apps, we created a competitive analysis.",
       },
       { type: "figure", src: "/studies/meep-comp.png", caption: "Competitive analysis" },
       { type: "divider", label: "DESIGN DECISIONS" },
@@ -139,13 +139,13 @@ export const studies = {
       },
       {
         type: "prose",
-        html: "Given the feedback, we strengthened the onboarding process with MEEP as a guide, and (very painfully) scrapped our beloved spaceship concept, which acts as a part of the user profile, and users collect digital furniture and appliances to decorate the spaceship as they opened more crates. Testers reported that the gamified approach felt like too much commitment, the opposite of what we wanted to create, which is a stress-free, minimum commitment experience.",
+        html: "Given the feedback, we strengthened the onboarding process with MEEP as a guide, and (very painfully) scrapped our beloved spaceship concept, which acted as part of the user profile. Users collected digital furniture and appliances to decorate the spaceship as they opened more crates. Testers reported that the gamified approach felt like too much commitment, the opposite of what we wanted to create, which is a stress-free, minimal-commitment experience.",
       },
       { type: "figure", src: "/studies/meep-grave.png", caption: "Spaceship graveyard" },
       { type: "figure", src: "/studies/meep-profile.png", caption: "Profile, before and after" },
       {
         type: "prose",
-        html: "We also did extra A/B testing with our navbar. We initially had a floating, green liquid-glass navbar, but we settled for black because the empty spaces the green navbar left didn’t feel right.",
+        html: "We also did extra A/B testing with our navbar. We initially had a floating, green liquid-glass navbar, but we settled on black because the empty spaces the green navbar left didn’t feel right.",
       },
       { type: "figure", src: "/studies/meep-nav.png", caption: "Navbar A/B testing" },
       {
@@ -180,7 +180,7 @@ export const studies = {
       {
         heading: "Viewing memento",
         story:
-          "Users can view their Memento as a standard landscape video on their devices, but they can also utilize the AR compatibility with headsets like Google Cardboard to fully immerse into the experience and get a lively 360° view of their precious memory.",
+          "Users can view their Memento as a standard landscape video on their devices, but they can also use AR compatibility with headsets like Google Cardboard to fully immerse themselves in the experience and get a lively 360° view of their precious memory.",
         video: "/video/memento-view-web.mp4",
       },
       {
@@ -194,7 +194,7 @@ export const studies = {
       { type: "divider", label: "CONTEXT" },
       {
         type: "prose",
-        html: "This was my first design-a-thon! The prompt was: How might we design solutions that celebrate culture and memory, strengthen connections between people, and create meaningful experiences that feel personal and shared? This prompt felt very personal and emotional to my team, so we dared to dream big with our concept. We had 48 hours to ideate, interview users, send out surveys, wireframe & prototype, and present to judges. For the first time in a high-stress situation like this, there was a pressure and thrill unlike anything I’ve ever felt.",
+        html: "This was my first design-a-thon! The prompt was: How might we design solutions that celebrate culture and memory, strengthen connections between people, and create meaningful experiences that feel personal and shared? This prompt felt very personal and emotional to my team, so we dared to dream big with our concept. We had 48 hours to ideate, interview users, send out surveys, wireframe and prototype, and present to judges. For the first time in a high-stress situation like this, there was pressure and a thrill unlike anything I’ve ever felt.",
       },
       { type: "divider", label: "DEMO" },
       { type: "demo", src: "/studies/memento-screen.mp4", bg: "/studies/memento-demo-bg.png", layout: "memento", caption: "Full demo" },
@@ -207,7 +207,7 @@ export const studies = {
       { type: "divider", label: "RESEARCH" },
       {
         type: "prose",
-        html: "We surveyed 84 lovely humans, and the result speaks for itself.",
+        html: "We surveyed 84 lovely humans, and the results speak for themselves.",
       },
       {
         type: "pies",
@@ -221,12 +221,12 @@ export const studies = {
       },
       {
         type: "prose",
-        html: "We also asked in our survey: <strong>What memory would you want to relive more vividly?</strong> The answers were full of precious moments that carry a lot of emotional weight, and our team was moved as we read all of them. Reading the responses also brought us back to the simpler times, and we realized that it is within human nature to try to hold our dearest memories close.",
+        html: "We also asked in our survey: <strong>What memory would you want to relive more vividly?</strong> The answers were full of precious moments that carry a lot of emotional weight, and our team was moved as we read all of them. Reading the responses also brought us back to simpler times, and we realized that it is human nature to try to hold our dearest memories close.",
       },
       { type: "figure", src: "/studies/mem-survey.png", caption: "Survey answers" },
       {
         type: "prose",
-        html: "The most common pain point about their favorite memories we received was that <strong>“photos and videos can’t capture the emotions I felt”</strong>, so…",
+        html: "The most common pain point we received about their favorite memories was that <strong>“photos and videos can’t capture the emotions I felt”</strong>, so…",
       },
       { type: "divider", label: "DESIGN DECISIONS" },
       {
@@ -235,18 +235,18 @@ export const studies = {
       },
       {
         type: "prose",
-        html: "We placed a heavy emphasis on “fragments” of memories, so we built the visual language around those fragments. Our initial idea was inspired by Persona 5 design style, as we wanted to use a scrapbook aesthetic for our app, but it felt too chaotic, so we decided to pivot to uneven edges for boxes, representing the fragments of memories.",
+        html: "We placed a heavy emphasis on “fragments” of memories, so we built the visual language around those fragments. Our initial idea was inspired by the Persona 5 design style, as we wanted to use a scrapbook aesthetic for our app, but it felt too chaotic, so we decided to pivot to uneven edges on the boxes, representing the fragments of memories.",
       },
       { type: "figure", src: "/studies/mem-fragments.png", caption: "Fragments" },
       {
         type: "prose",
-        html: "As AI collects and generates the Memento for our user, it would take a second for the end product to finish. I created the “Down the memory lane” animation because I wanted the waiting process to be immersive, as users can see their fragments float past their POV. This was a personal design choice because I usually get bored and annoyed staring at the typical circular spinning animation while things load.",
+        html: "As AI collects and generates the Memento for our user, it would take a second for the end product to finish. I created the “Down memory lane” animation because I wanted the waiting process to be immersive, as users can see their fragments float past their POV. This was a personal design choice because I usually get bored and annoyed staring at the typical circular spinning animation while things load.",
       },
       {
         type: "lane",
         still: "/studies/mem-lane-frame.png",
         video: "/video/memento-lane-screen.mp4",
-        caption: "Down the memory lane",
+        caption: "Down memory lane",
       },
       {
         type: "prose",
@@ -262,7 +262,7 @@ export const studies = {
       { type: "divider", label: "REFLECTION" },
       {
         type: "prose",
-        html: "Our main challenge was that the lack of time to do more intensive research forced us to design a lot based on intuition and personal experiences. We were also not able to test out as many design iterations as we would’ve liked. I really loved our concept of this app, and even though Memento do not seem like a fully viable product that we would be happy to push out to the market at the moment, with the current pace of AI development, we will definitely go back and create this experience, for real. Overall, I am super proud of this project, and I thoroughly enjoyed this journey :3",
+        html: "Our main challenge was that the lack of time to do more intensive research forced us to design a lot based on intuition and personal experiences. We were also not able to test out as many design iterations as we would’ve liked. I really loved our concept of this app, and even though Memento does not seem like a fully viable product that we would be happy to push out to the market at the moment, with the current pace of AI development, we will definitely go back and create this experience, for real. Overall, I am super proud of this project, and I thoroughly enjoyed this journey :3",
       },
     ],
   },
@@ -284,19 +284,19 @@ export const studies = {
       {
         heading: "Roommate agreement page",
         story:
-          "Encourage civil discussion to set boundaries ahead of time, and sign the Roommate Agreement. Everyone states their expectations, acknowledges their responsibilities, and accepts them.",
+          "It encourages civil discussion so roommates can set boundaries ahead of time and sign the Roommate Agreement. Everyone states their expectations, acknowledges their responsibilities, and accepts them.",
         video: "/video/cosi-agreement-web.mp4",
       },
       {
         heading: "Task page",
         story:
-          "Task list + notification system, prioritized chronologically. Users can easily add tasks, claim unassigned ones to step up for the household, encouraging accountability.",
+          "A task list and notification system, prioritized chronologically. Users can easily add tasks and claim unassigned ones to step up for the household, which encourages accountability.",
         video: "/video/cosi-tasks-web.mp4",
       },
       {
         heading: "Shared calendar page",
         story:
-          "Easy heads-up for using the shared space ahead of time, and viewing upcoming scheduling conflicts. Addresses the guests issue and makes communications easier.",
+          "It gives an easy heads-up for using a shared space ahead of time and shows upcoming scheduling conflicts. It addresses the guest issue and makes communication easier.",
         video: "/video/cosi-calendar-web.mp4",
       },
     ],
@@ -304,14 +304,14 @@ export const studies = {
       { type: "divider", label: "CONTEXT" },
       {
         type: "prose",
-        html: "First time using Figma! It was super exciting to put together this app piece by piece. I went from following workshop instructions to understand basic tools, to learning about the importance of surveying and user interviews to make products and design decisions that actually appeal to users, to independently and collaboratively taking on these actions, to finally building out this product 0 -> 1.",
+        html: "First time using Figma! It was super exciting to put together this app piece by piece. I went from following workshop instructions to understanding basic tools, to learning about the importance of surveying and user interviews to make products and design decisions that actually appeal to users, to independently and collaboratively taking on these actions, to finally building out this product from 0 to 1.",
       },
       { type: "divider", label: "DEMO" },
       { type: "demo", src: "/studies/cosi-screen.mp4", bg: "/studies/cosi-demo-bg.png", layout: "cosi", rate: 0.75, caption: "Full demo" },
       { type: "divider", label: "THE PROBLEM" },
       {
         type: "problem",
-        html: "It's hard to confront people while being respectful, especially when its people you live with. To avoid the confrontation, some people end up silencing themselves, and the resentment builds up, leading to stress and discomfort. So…",
+        html: "It's hard to confront people while being respectful, especially when it's people you live with. To avoid confrontation, some people end up silencing themselves, and the resentment builds up, leading to stress and discomfort. So…",
         hmw: "How might we encourage people to be better roommates by opening channels of communication, visualizing responsibilities, and emphasizing individual impact?",
       },
       { type: "divider", label: "RESEARCH" },
@@ -324,7 +324,7 @@ export const studies = {
         items: [
           {
             icon: "home",
-            html: "The most commonly reported issues are regarding <strong>cleaning, noise, and guests</strong>.",
+            html: "The most commonly reported issues concern <strong>cleaning, noise, and guests</strong>.",
           },
           {
             icon: "chat",
@@ -332,38 +332,38 @@ export const studies = {
           },
           {
             icon: "check",
-            html: "5 out of 6 interviewees brought up a <strong>lack of accountability</strong> as a major issue among roommates",
+            html: "5 out of 6 interviewees brought up a <strong>lack of accountability</strong> as a major issue among roommates.",
           },
         ],
       },
       {
         type: "prose",
-        html: "This is what makes our app stand out amongst existing co-living apps",
+        html: "This is what makes our app stand out amongst existing co-living apps.",
       },
       { type: "figure", src: "/studies/cosi-comp.png", caption: "Competitive analysis" },
       { type: "divider", label: "DESIGN DECISIONS" },
       {
         type: "prose",
-        html: "To address these pain points, we designed this product so that our app",
+        html: "To address these pain points, we designed this product so that our app:",
       },
       {
         type: "cards",
         items: [
-          { icon: "home", html: "Provides a solution to address cleaning, noise and guests" },
+          { icon: "home", html: "Provides a solution for cleaning, noise, and guests" },
           { icon: "chat", html: "Helps make communication between roommates frictionless" },
-          { icon: "check", html: "Enforces accountability amongst each other, respectfully" },
+          { icon: "check", html: "Enforces accountability between roommates, respectfully" },
         ],
       },
       {
         type: "prose",
-        html: "This is our final user flow before fleshing out the app (scroll and drag to look around)",
+        html: "This is our final user flow before fleshing out the app (scroll and drag to look around).",
       },
       { type: "flow", src: "/studies/cosi-flow.png", caption: "User flow" },
-      { type: "prose", html: "According to the style guide" },
+      { type: "prose", html: "Here is the style guide." },
       { type: "figure", src: "/studies/cosi-style.png", caption: "Style guide" },
       {
         type: "prose",
-        html: "From user testing, we were informed that the onboarding process could be a bit tedious, so we created Bob the Blob",
+        html: "From user testing, we learned that the onboarding process could be a bit tedious, so we created Bob the Blob.",
       },
       { type: "figure", src: "/studies/cosi-bob.png", caption: "Bob the Blob" },
       {
@@ -377,7 +377,7 @@ export const studies = {
       { type: "figure", src: "/studies/cosi-ab.png", caption: "A/B testing" },
       {
         type: "prose",
-        html: "Lo-fi => Hi-fi process for one of our key features: Tasks page",
+        html: "The lo-fi to hi-fi process for one of our key features: the Tasks page.",
       },
       { type: "figure", src: "/studies/cosi-tasks.png", caption: "Tasks page, lo-fi to hi-fi" },
       { type: "product" },
@@ -397,7 +397,7 @@ export const studies = {
             title: "<strong>Takeaways:</strong>",
             lines: [
               "When you feel like you’ve lost sight of the original problem, go back to user research",
-              "It’s never too late to make improvements. If it’s a big change, it’ll probably be a big improvement",
+              "It’s never too late to make improvements. If it’s a big change, it will probably be a big improvement",
               "The design process is iterative; you don’t need to follow every single step in one set order",
             ],
           },
